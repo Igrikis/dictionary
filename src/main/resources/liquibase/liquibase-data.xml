@@ -4,4 +4,14 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="Igor Ivanov">
+        <insert tableName="users">
+            <column name="login">Igrikis</column>
+            <column name="first_name">Igor</column>
+            <column name="last_name">Ivanov</column>
+            <column name="age">26</column>
+            <column name="email">igrik.is.parich@gmail.com</column>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
