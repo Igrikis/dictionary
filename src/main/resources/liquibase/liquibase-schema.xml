@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="1" author="Igor Ivanov">
+        <createTable tableName="user">
+            <column name="id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" />
+            </column>
+            <column name="login" type="java.sql.Types.VARCHAR(50)"/>
+            <column name="first_name" type="java.sql.Types.VARCHAR(50)"/>
+            <column name="last_name" type="java.sql.Types.VARCHAR(50)"/>
+            <column name="age" type="java.sql.Types.BIGINT"/>
+            <column name="email" type="java.sql.Types.VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

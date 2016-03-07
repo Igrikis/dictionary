@@ -9,6 +9,7 @@
     <properties>
         <javax.persistence.version>1.0.2</javax.persistence.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
+        <javax.jstl.version>1.2</javax.jstl.version>
         <spring.version>4.2.5.RELEASE</spring.version>
         <spring.security.version>4.0.4.RELEASE</spring.security.version>
         <liquibase.version>3.4.2</liquibase.version>
@@ -28,10 +29,21 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>${javax.servlet.version}</version>
         </dependency>
+        <!-- javax.jstl -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${javax.jstl.version}</version>
+        </dependency>
         <!-- spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
         </dependency>
         <dependency>
