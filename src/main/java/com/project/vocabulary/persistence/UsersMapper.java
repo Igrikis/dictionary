@@ -11,24 +11,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Igor Ivanov on 07.03.2016.
+ * Created by Igor Ivanov
  */
 public interface UsersMapper {
 
     @Select("SELECT * FROM USERS")
     List<Users> getUserList();
-
-    @Select("SELECT * FROM USERS WHERE ID = #{id}")
-    Users getUserById(@Param("ID") BigInteger id);
-
-    Users getUserDetailById(Map<String, Object> params);
-
-    int updateUserDetailsById(Map<String, Object> params);
-
-    @Update("UPDATE USERS SET EMAIL = #{email} WHERE ID = #{id}")
-    int updateUserEmailById(@Param("ID") BigInteger id,@Param("EMAIL") String email);
-
-    @Delete("DELETE FROM USERS WHERE ID = #{id}")
-    int deleteUserById(@Param("ID") BigInteger id);
 
 }

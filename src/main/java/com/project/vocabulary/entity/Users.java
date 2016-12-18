@@ -3,7 +3,7 @@ package com.project.vocabulary.entity;
 import java.io.Serializable;
 
 /**
- * Created by Igor Ivanov on 07.03.2016.
+ * Created by Igor Ivanov
  */
 public class Users implements Serializable{
 

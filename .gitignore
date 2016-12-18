@@ -3,3 +3,4 @@ dictionary.iml
 core.iml
 front_end.iml
 application.properties
+src/main/resources/config/

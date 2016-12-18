@@ -10,9 +10,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 /**
- * Created by Igor Ivanov on 05.03.2016.
+ * Created by Igor Ivanov
  */
-
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.project.vocabulary")

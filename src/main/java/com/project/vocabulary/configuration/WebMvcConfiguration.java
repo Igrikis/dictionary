@@ -13,9 +13,8 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * Created by Igor Ivanov on 05.03.2016.
+ * Created by Igor Ivanov
  */
-
 @Configuration
 @MapperScan("com.project.vocabulary.persistence")
 @PropertySource("classpath:config/application.properties")
