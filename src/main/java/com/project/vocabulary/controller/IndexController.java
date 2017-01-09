@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -25,11 +26,10 @@ public class IndexController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = ApiUrl.INDEX, method = RequestMethod.GET)
-    public String hello(Model model) {
-        model.addAttribute("subject", "world");
-        List<Users> users = (userService.getUserList());
-        return "Home";
+    @RequestMapping(value = ApiUrl.INDEX, method = RequestMethod.GET, produces = {"application/json"})
+    @ResponseBody
+    public List<Users> hello() {
+        return userService.getUserList();
     }
 
 }
