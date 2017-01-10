@@ -5,6 +5,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * Created by Igor Ivanov
  */
 @Configuration
+@ComponentScan("com.project.vocabulary")
 @MapperScan("com.project.vocabulary.persistence")
 @PropertySource("classpath:config/application.properties")
 public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
