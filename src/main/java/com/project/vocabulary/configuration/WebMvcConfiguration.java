@@ -51,7 +51,7 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Bean
     public BasicDataSource getDataSource() throws URISyntaxException {
-        URI dbUri = new URI(System.getenv("DATABASE_URL"));
+        URI dbUri = new URI(System.getenv("CLEARDB_DATABASE_URL"));
 
         String username = dbUri.getUserInfo().split(":")[0];
         String password = dbUri.getUserInfo().split(":")[1];
