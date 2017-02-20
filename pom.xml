@@ -93,7 +93,7 @@
             <artifactId>liquibase-slf4j</artifactId>
             <version>${liquibase.slf4j.version}</version>
         </dependency>
-        <!-- postgresql -->
+        <!-- mysql -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -137,11 +137,17 @@
             <artifactId>jackson-core</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-
+        <!-- dbcp -->
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>${commons.dbcp.version}</version>
+        </dependency>
+        <!-- orika -->
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+            <version>1.5.0</version>
         </dependency>
     </dependencies>
 

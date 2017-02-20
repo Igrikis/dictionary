@@ -2,6 +2,7 @@ package com.project.vocabulary.controller;
 
 import com.project.vocabulary.api.ApiUrl;
 import com.project.vocabulary.dao.UserDao;
+import com.project.vocabulary.dto.UsersDto;
 import com.project.vocabulary.entity.Users;
 import com.project.vocabulary.request.MultiResult;
 import com.project.vocabulary.service.UserService;
@@ -29,8 +30,8 @@ public class IndexController {
 
     @RequestMapping(value = ApiUrl.INDEX, method = RequestMethod.GET, produces = {"application/json"})
     @ResponseBody
-    public MultiResult<List<Users>> hello() {
-        final List<Users> users = userService.getUserList();
+    public MultiResult<List<UsersDto>> hello() {
+        final List<UsersDto> users = userService.getUserList();
         return new MultiResult<>(users, users.size());
     }
 

@@ -1,6 +1,6 @@
 package com.project.vocabulary.service;
 
-import com.project.vocabulary.entity.Users;
+import com.project.vocabulary.dto.UsersDto;
 
 import java.util.List;
 
@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface UserService {
 
-    List<Users> getUserList();
+    List<UsersDto> getUserList();
 
 }

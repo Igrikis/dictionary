@@ -3,6 +3,13 @@
 
 <mapper namespace="com.project.vocabulary.persistence.UsersMapper">
 
+    <select id="getUserList" parameterType="map">
+        SELECT
+        *
+        FROM
+        USERS
+    </select>
+
     <select id="getUserDetailById" resultType="HashMap" parameterType="map">
         SELECT
         EMAIL , PASSWORD

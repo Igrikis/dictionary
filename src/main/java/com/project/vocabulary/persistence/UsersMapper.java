@@ -15,7 +15,6 @@ import java.util.Map;
  */
 public interface UsersMapper {
 
-    @Select("SELECT * FROM USERS")
     List<Users> getUserList();
 
 }
