@@ -29,38 +29,32 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
     private String driverClassName;
     @Value("${jdbc.url}")
     private String url;
-    @Value("${jdbc.username}")
-    private String username;
-    @Value("${jdbc.password}")
-    private String password;
+    @Value("${jdbc.clear.database.url}")
+    private String clearDataBase;
+    @Value("${jdbc.database.url}")
+    private String dataBase;
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer config() {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
-    /*@Bean
-    public DriverManagerDataSource getDataSource() {
-        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-        driverManagerDataSource.setDriverClassName(driverClassName);
-        driverManagerDataSource.setUrl(url);
-        driverManagerDataSource.setUsername(username);
-        driverManagerDataSource.setPassword(password);
-        return driverManagerDataSource;
-    }*/
-
     @Bean
     public BasicDataSource getDataSource() throws URISyntaxException {
-        URI dbUri = new URI(System.getenv("CLEARDB_DATABASE_URL"));
-
-        String username = dbUri.getUserInfo().split(":")[0];
-        String password = dbUri.getUserInfo().split(":")[1];
-        String dbUrl = "jdbc:mysql://" + dbUri.getHost() + dbUri.getPath();
-
+        URI dbUri;
         BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setUrl(dbUrl);
-        basicDataSource.setUsername(username);
-        basicDataSource.setPassword(password);
+
+        if (System.getenv(clearDataBase) != null) {
+            dbUri = new URI(System.getenv(clearDataBase));
+            basicDataSource.setUrl(String.format("%s%s%s", url, dbUri.getHost(), dbUri.getPath()));
+        } else {
+            dbUri = new URI(System.getenv(dataBase));
+            basicDataSource.setUrl(String.format("%s%s:%d%s", url, dbUri.getHost(), dbUri.getPort(), dbUri.getPath()));
+            basicDataSource.setDriverClassName(driverClassName);
+        }
+
+        basicDataSource.setUsername(dbUri.getUserInfo().split(":")[0]);
+        basicDataSource.setPassword(dbUri.getUserInfo().split(":")[1]);
 
         return basicDataSource;
     }
