@@ -3,10 +3,12 @@ package com.project.vocabulary.controller;
 import com.project.vocabulary.api.ApiUrl;
 import com.project.vocabulary.dao.UserDao;
 import com.project.vocabulary.entity.Users;
+import com.project.vocabulary.request.MultiResult;
 import com.project.vocabulary.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,8 +29,9 @@ public class IndexController {
 
     @RequestMapping(value = ApiUrl.INDEX, method = RequestMethod.GET, produces = {"application/json"})
     @ResponseBody
-    public List<Users> hello() {
-        return userService.getUserList();
+    public MultiResult<List<Users>> hello() {
+        final List<Users> users = userService.getUserList();
+        return new MultiResult<>(users, users.size());
     }
 
 }
