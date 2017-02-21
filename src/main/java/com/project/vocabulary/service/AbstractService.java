@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by Igor Ivanov
  */
-public class AbstraxtService {
+public class AbstractService {
+
     @Autowired
     protected IMapper mapper;
+
 }

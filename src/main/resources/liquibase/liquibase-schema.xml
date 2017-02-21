@@ -16,4 +16,26 @@
             <column name="email" type="java.sql.Types.VARCHAR(50)"/>
         </createTable>
     </changeSet>
+
+    <changeSet id="2" author="Igor Ivanov">
+        <createTable tableName="user_roles">
+            <column name="id" type="java.sql.Types.BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="login" type="java.sql.Types.VARCHAR(50)"/>
+            <column name="role" type="java.sql.Types.VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="Igor Ivanov">
+        <addUniqueConstraint tableName="users" columnNames="login"/>
+        <addForeignKeyConstraint baseTableName="user_roles" baseColumnNames="login" constraintName="USER_LOGIN_USER_ROLE" referencedTableName="users"
+                                 referencedColumnNames="login"/>
+    </changeSet>
+
+    <changeSet id="4" author="Igor Ivanov">
+        <addColumn tableName="users">
+            <column name="password" type="java.sql.Types.VARCHAR(100)"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

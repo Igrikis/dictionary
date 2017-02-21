@@ -23,4 +23,9 @@ public class UserDaoImpl implements UserDao {
         return usersMapper.getUserList();
     }
 
+    @Override
+    public Users getUserByLogin(String login) {
+        return usersMapper.getUserByLogin(login);
+    }
+
 }

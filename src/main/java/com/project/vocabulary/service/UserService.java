@@ -11,4 +11,6 @@ public interface UserService {
 
     List<UsersDto> getUserList();
 
+    UsersDto getUserByLogin(String login);
+
 }

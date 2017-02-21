@@ -17,4 +17,6 @@ public interface UsersMapper {
 
     List<Users> getUserList();
 
+    Users getUserByLogin(String login);
+
 }

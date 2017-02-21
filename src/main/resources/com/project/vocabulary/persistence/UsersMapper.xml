@@ -10,10 +10,14 @@
         <result column="last_name" property="lastName"/>
         <result column="age" property="age"/>
         <result column="email" property="email"/>
+        <result column="password" property="password"/>
     </resultMap>
 
     <select id="getUserList" resultMap="userResultMap">
         SELECT * FROM USERS
+    </select>
+
+    <select id="getUserByLogin" resultMap="userResultMap">
     </select>
 
 </mapper>

@@ -14,4 +14,11 @@
             <column name="email">igrik.is.parich@gmail.com</column>
         </insert>
     </changeSet>
+
+    <changeSet id="2" author="Igor Ivanov">
+        <insert tableName="user_roles">
+            <column name="login">Igrikis</column>
+            <column name="role">ADMIN</column>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
