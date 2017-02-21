@@ -49,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/index").access("hasRole('ROLE_ADMIN')")
-                .and().formLogin()
+                .and().formLogin().loginPage("/login")
                 .usernameParameter("login").passwordParameter("password")
                 .and().csrf()
                 .and().exceptionHandling().accessDeniedPage("/Access_Denied");

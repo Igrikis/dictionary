@@ -6,5 +6,6 @@ package com.project.vocabulary.api;
 public abstract class ApiUrl {
 
     public static final String INDEX = "/index";
+    public static final String LOGIN = "/login";
 
 }

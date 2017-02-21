@@ -1,4 +1,4 @@
-package com.project.vocabulary.configuration;
+package com.project.vocabulary.security;
 
 import com.project.vocabulary.dto.UsersAuthDto;
 import com.project.vocabulary.entity.UserRoles;
@@ -29,21 +29,18 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String login)
             throws UsernameNotFoundException {
+
         UsersAuthDto user = userAuthService.getUserByLogin(login);
+
         if (user == null) {
             throw new UsernameNotFoundException("Username not found");
         }
-        return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(),
-                true, true, true, true, getGrantedAuthorities(user));
-    }
 
-
-    private List<GrantedAuthority> getGrantedAuthorities(UsersAuthDto user) {
-        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-
+        List<GrantedAuthority> authorities = new ArrayList<>();
         for (UserRoles role : user.getRoles()) {
             authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getRole()));
         }
-        return authorities;
+
+        return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), authorities);
     }
 }
