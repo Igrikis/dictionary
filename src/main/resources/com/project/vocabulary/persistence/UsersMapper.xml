@@ -11,13 +11,27 @@
         <result column="age" property="age"/>
         <result column="email" property="email"/>
         <result column="password" property="password"/>
+        <collection property="roles" javaType="ArrayList" column="login" ofType="userRoles" select="getUserRoles"/>
+    </resultMap>
+
+    <resultMap id="userRoles" type="com.project.vocabulary.entity.UserRoles">
+        <result column="id" property="id"/>
+        <result column="login" property="login"/>
+        <result column="role" property="role"/>
     </resultMap>
 
     <select id="getUserList" resultMap="userResultMap">
         SELECT * FROM USERS
     </select>
 
-    <select id="getUserByLogin" resultMap="userResultMap">
+    <select id="getUserByLogin" parameterType="string" resultMap="userResultMap">
+        select * from USERS
+        where login = #{login}
+    </select>
+
+    <select id="getUserRoles" parameterType="string" resultMap="userRoles">
+        select * from USER_ROLES
+        where login = #{login}
     </select>
 
 </mapper>

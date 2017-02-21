@@ -1,6 +1,7 @@
 package com.project.vocabulary.dto;
 
 import com.project.vocabulary.dto.generic.AbstractDto;
+import com.project.vocabulary.entity.UserRoles;
 
 import java.util.List;
 
@@ -14,12 +15,12 @@ public class UsersDto extends AbstractDto{
     private String lastName;
     private String email;
     private String password;
-    private List<String> roles;
+    private List<UserRoles> roles;
 
     public UsersDto() {
     }
 
-    public UsersDto(String login, String firstName, String lastName, String email, String password, List<String> roles) {
+    public UsersDto(String login, String firstName, String lastName, String email, String password, List<UserRoles> roles) {
         this.login = login;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -68,11 +69,11 @@ public class UsersDto extends AbstractDto{
         this.password = password;
     }
 
-    public List<String> getRoles() {
+    public List<UserRoles> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<String> roles) {
+    public void setRoles(List<UserRoles> roles) {
         this.roles = roles;
     }
 }

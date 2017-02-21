@@ -1,5 +1,6 @@
 package com.project.vocabulary.configuration;
 
+import com.project.vocabulary.entity.UserRoles;
 import com.project.vocabulary.entity.Users;
 import com.project.vocabulary.security.UserAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +40,8 @@ public class CustomUserDetailsService implements UserDetailsService {
     private List<GrantedAuthority> getGrantedAuthorities(Users user) {
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 
-        for (String role : user.getRoles()) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_" + role));
+        for (UserRoles role : user.getRoles()) {
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getRole()));
         }
         return authorities;
     }

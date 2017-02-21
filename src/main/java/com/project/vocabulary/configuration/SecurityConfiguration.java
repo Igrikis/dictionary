@@ -48,8 +48,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/index/**").access("hasRole('ADMIN')")
-                .and().formLogin().loginPage("/login")
+                .antMatchers("/index/**").access("hasRole('ROLE_ADMIN')")
+                .and().formLogin()
                 .usernameParameter("login").passwordParameter("password")
                 .and().csrf()
                 .and().exceptionHandling().accessDeniedPage("/Access_Denied");

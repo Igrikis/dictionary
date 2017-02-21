@@ -15,7 +15,7 @@ public class Users extends AbstractEntity{
     private Long age;
     private String email;
     private String password;
-    private List<String> roles;
+    private List<UserRoles> roles;
 
     public Users() {
     }
@@ -68,11 +68,11 @@ public class Users extends AbstractEntity{
         this.password = password;
     }
 
-    public List<String> getRoles() {
+    public List<UserRoles> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<String> roles) {
+    public void setRoles(List<UserRoles> roles) {
         this.roles = roles;
     }
 
