@@ -1,5 +1,6 @@
 package com.project.vocabulary.service;
 
+import com.project.vocabulary.dto.UsersAuthDto;
 import com.project.vocabulary.dto.UsersDto;
 
 import java.util.List;
@@ -11,6 +12,6 @@ public interface UserService {
 
     List<UsersDto> getUserList();
 
-    UsersDto getUserByLogin(String login);
+    UsersAuthDto getUserByLogin(String login);
 
 }

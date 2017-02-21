@@ -1,5 +1,6 @@
 package com.project.vocabulary.security.impl;
 
+import com.project.vocabulary.dto.UsersAuthDto;
 import com.project.vocabulary.entity.Users;
 import com.project.vocabulary.security.UserAuthService;
 import com.project.vocabulary.service.AbstractService;
@@ -18,8 +19,8 @@ public class UserAuthServiceImpl extends AbstractService implements UserAuthServ
     private UserService userService;
 
     @Override
-    public Users getUserByLogin(String login) {
-        return mapper.map(userService.getUserByLogin(login), Users.class);
+    public UsersAuthDto getUserByLogin(String login) {
+        return userService.getUserByLogin(login);
     }
 
 }

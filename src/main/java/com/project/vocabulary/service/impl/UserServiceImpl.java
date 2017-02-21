@@ -1,6 +1,7 @@
 package com.project.vocabulary.service.impl;
 
 import com.project.vocabulary.dao.UserDao;
+import com.project.vocabulary.dto.UsersAuthDto;
 import com.project.vocabulary.dto.UsersDto;
 import com.project.vocabulary.service.AbstractService;
 import com.project.vocabulary.service.UserService;
@@ -23,8 +24,8 @@ public class UserServiceImpl extends AbstractService implements UserService{
     }
 
     @Override
-    public UsersDto getUserByLogin(String login) {
-        return mapper.map(userDao.getUserByLogin(login), UsersDto.class);
+    public UsersAuthDto getUserByLogin(String login) {
+        return mapper.map(userDao.getUserByLogin(login), UsersAuthDto.class);
     }
 
 }

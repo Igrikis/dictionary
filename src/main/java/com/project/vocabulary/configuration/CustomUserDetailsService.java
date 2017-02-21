@@ -1,5 +1,6 @@
 package com.project.vocabulary.configuration;
 
+import com.project.vocabulary.dto.UsersAuthDto;
 import com.project.vocabulary.entity.UserRoles;
 import com.project.vocabulary.entity.Users;
 import com.project.vocabulary.security.UserAuthService;
@@ -28,7 +29,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String login)
             throws UsernameNotFoundException {
-        Users user = userAuthService.getUserByLogin(login);
+        UsersAuthDto user = userAuthService.getUserByLogin(login);
         if (user == null) {
             throw new UsernameNotFoundException("Username not found");
         }
@@ -37,7 +38,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
 
-    private List<GrantedAuthority> getGrantedAuthorities(Users user) {
+    private List<GrantedAuthority> getGrantedAuthorities(UsersAuthDto user) {
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 
         for (UserRoles role : user.getRoles()) {

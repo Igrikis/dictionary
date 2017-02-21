@@ -8,22 +8,24 @@ import java.util.List;
 /**
  * Created by Igor Ivanov
  */
-public class UsersDto extends AbstractDto{
+public class UsersAuthDto extends AbstractDto{
 
     private String login;
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
     private List<UserRoles> roles;
 
-    public UsersDto() {
+    public UsersAuthDto() {
     }
 
-    public UsersDto(String login, String firstName, String lastName, String email, List<UserRoles> roles) {
+    public UsersAuthDto(String login, String firstName, String lastName, String email, String password, List<UserRoles> roles) {
         this.login = login;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.password = password;
         this.roles = roles;
     }
 
@@ -57,6 +59,14 @@ public class UsersDto extends AbstractDto{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<UserRoles> getRoles() {
