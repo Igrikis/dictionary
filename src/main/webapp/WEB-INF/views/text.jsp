@@ -24,6 +24,8 @@
         <tbody id = "tbo">
         </tbody>
     </table>
+
+    <button type="button" class="btn btn-primary" onclick="location.href='/new_text'">Primary</button>
 </div>
 
 <script>
