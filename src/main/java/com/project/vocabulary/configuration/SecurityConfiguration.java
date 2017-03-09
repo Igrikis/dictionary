@@ -1,5 +1,6 @@
 package com.project.vocabulary.configuration;
 
+import com.project.vocabulary.api.ApiUrl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -21,6 +22,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    private static final String LOGIN = "login";
+    private static final String PASSWORD = "password";
 
     @Autowired
     @Qualifier("CustomUserDetailsService")
@@ -47,12 +51,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/index").access("hasRole('ROLE_ADMIN')")
-                .and().formLogin().loginPage("/login")
-                .usernameParameter("login").passwordParameter("password")
+                .antMatchers(ApiUrl.INDEX).permitAll()
+                .antMatchers("/test1").access("hasRole('ROLE_ADMIN')")
+                .and().formLogin().loginPage(ApiUrl.LOGIN)
+                .usernameParameter(LOGIN).passwordParameter(PASSWORD)
                 .and().csrf()
-                .and().exceptionHandling().accessDeniedPage("/Access_Denied");
+                .and().exceptionHandling().accessDeniedPage(ApiUrl.ACCESS_DENIED);
     }
 
 }

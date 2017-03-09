@@ -25,11 +25,16 @@ public class IndexController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = ApiUrl.INDEX, method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/tests", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseBody
     public MultiResult<List<UsersDto>> hello() {
         final List<UsersDto> users = userService.getUserList();
         return new MultiResult<>(users, users.size());
+    }
+
+    @RequestMapping(value = ApiUrl.INDEX, method = RequestMethod.GET)
+    public String indexPage() {
+        return "index";
     }
 
     @RequestMapping(value = ApiUrl.LOGIN, method = RequestMethod.GET)
