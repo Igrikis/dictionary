@@ -2,15 +2,11 @@ package com.project.vocabulary.controller;
 
 import com.project.vocabulary.api.ApiUrl;
 import com.project.vocabulary.dto.TextDto;
-import com.project.vocabulary.dto.UsersDto;
 import com.project.vocabulary.request.MultiResult;
 import com.project.vocabulary.service.TextService;
-import com.project.vocabulary.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;

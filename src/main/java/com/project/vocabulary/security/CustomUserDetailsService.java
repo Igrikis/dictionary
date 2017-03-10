@@ -2,8 +2,6 @@ package com.project.vocabulary.security;
 
 import com.project.vocabulary.dto.UsersAuthDto;
 import com.project.vocabulary.entity.UserRoles;
-import com.project.vocabulary.entity.Users;
-import com.project.vocabulary.security.UserAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
