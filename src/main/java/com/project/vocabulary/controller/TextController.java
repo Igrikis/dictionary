@@ -1,11 +1,14 @@
 package com.project.vocabulary.controller;
 
 import com.project.vocabulary.api.ApiUrl;
+import com.project.vocabulary.dto.TextDto;
 import com.project.vocabulary.dto.UsersDto;
 import com.project.vocabulary.request.MultiResult;
+import com.project.vocabulary.service.TextService;
+import com.project.vocabulary.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -18,21 +21,32 @@ import java.util.List;
 @Controller
 public class TextController {
 
-    @RequestMapping(value = ApiUrl.TEXT, method = RequestMethod.GET)
+    @Autowired
+    private TextService textService;
+
+    @RequestMapping(value = ApiUrl.TEXT)
     public String textPage() {
         return "text";
     }
 
-    @RequestMapping(value = ApiUrl.NEW_TEXT, method = RequestMethod.GET)
+    @RequestMapping(value = ApiUrl.NEW_TEXT)
     public String newTextPage() {
         return "new_text";
     }
 
-    @RequestMapping(value = ApiUrl.ACCESS_DENIED, method = RequestMethod.POST)
+    @RequestMapping(value = ApiUrl.GET_TEXT, produces = ApiUrl.JSON)
     @ResponseBody
-    public void saveText(String data) {
-        data.toCharArray();
+    public MultiResult<List<TextDto>> getText() {
+        final List<TextDto> text = textService.getTextList();
+        return new MultiResult<>(text, text.size());
+    }
 
+    @RequestMapping(value = ApiUrl.SAVE_TEXT)
+    @ResponseBody
+    public void saveText(
+            //@RequestParam TextDto text
+    ) {
+        //text.toString();
     }
 
 }

@@ -22,22 +22,12 @@ public class IndexController {
 
     private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
-    @Autowired
-    private UserService userService;
-
-    @RequestMapping(value = "/tests", method = RequestMethod.GET, produces = {"application/json"})
-    @ResponseBody
-    public MultiResult<List<UsersDto>> hello() {
-        final List<UsersDto> users = userService.getUserList();
-        return new MultiResult<>(users, users.size());
-    }
-
-    @RequestMapping(value = ApiUrl.INDEX, method = RequestMethod.GET)
+    @RequestMapping(value = ApiUrl.INDEX)
     public String indexPage() {
         return "index";
     }
 
-    @RequestMapping(value = ApiUrl.LOGIN, method = RequestMethod.GET)
+    @RequestMapping(value = ApiUrl.LOGIN)
     public String loginPage() {
         return "login";
     }

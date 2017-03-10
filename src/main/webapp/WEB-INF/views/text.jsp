@@ -11,14 +11,15 @@
 </head>
 <body>
 
+<jsp:include page="includes/header.jsp"/>;
+
 <div class="container">
     <table class="table table-condensed" id="myTable">
         <thead>
         <tr>
-            <th>Login</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
+            <th>Number</th>
+            <th>Label</th>
+            <th>Date</th>
         </tr>
         </thead>
         <tbody id = "tbo">
@@ -31,14 +32,13 @@
 <script>
     $(document).ready(function() {
         var table = $('#tbo');
-        $.getJSON('/tests', function (data) {
+        $.getJSON('/get_text', function (data) {
             for (var i = 0; i < data.result.length; i++) {
                 table.append(
                     '<tr>' +
-                    '<td>' + data.result[i].login + '</td>' +
-                    '<td>' + data.result[i].firstName + '</td>' +
-                    '<td>' + data.result[i].lastName + '</td>' +
-                    '<td>' + data.result[i].email + '</td>' +
+                    '<td>' + data.result[i].id + '</td>' +
+                    '<td>' + data.result[i].label + '</td>' +
+                    '<td>' + data.result[i].date + '</td>' +
                     '</tr>');
             }});
     });
