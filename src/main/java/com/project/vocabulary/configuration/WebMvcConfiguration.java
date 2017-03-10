@@ -33,6 +33,8 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
     private String clearDataBase;
     @Value("${jdbc.database.url}")
     private String dataBase;
+    @Value("${jdbc.unicode}")
+    private String unicode;
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer config() {
@@ -53,6 +55,7 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
             basicDataSource.setDriverClassName(driverClassName);
         }
 
+        basicDataSource.setConnectionProperties(unicode);
         basicDataSource.setUsername(dbUri.getUserInfo().split(":")[0]);
         basicDataSource.setPassword(dbUri.getUserInfo().split(":")[1]);
 

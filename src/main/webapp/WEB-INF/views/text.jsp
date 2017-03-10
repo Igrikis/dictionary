@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.text.*,java.util.*" session="false" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -10,6 +9,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        table { border-spacing: 0; }
+        td { padding: 4px; }
+        tr:hover {
+            background: #37c3ff;
+        }
+    </style>
 </head>
 <body>
 
@@ -37,7 +44,7 @@
         $.getJSON('/get_text', function (data) {
             for (var i = 0; i < data.result.length; i++) {
                 table.append(
-                    '<tr>' +
+                    '<tr onclick="myFunction(this)">>' +
                     '<td>' + data.result[i].id + '</td>' +
                     '<td>' + data.result[i].label + '</td>' +
                     '<td>' + data.result[i].date + '</td>' +
@@ -45,7 +52,10 @@
             }
         });
     });
-</script>
 
+    function myFunction(x) {
+        console.log(x.rowIndex)
+    }
+</script>
 </body>
 </html>

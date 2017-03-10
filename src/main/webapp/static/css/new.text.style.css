@@ -1,0 +1,39 @@
+.center-input {
+    margin-top: 15px;
+    width: 30%;
+    left: 35%;
+    position: absolute;
+}
+
+.border-input {
+    border: 1px solid green;
+}
+
+.center-area-text {
+    margin-top: 50px;
+    width: 60%;
+    left: 20%;
+    position: absolute;
+}
+
+.area-text {
+    width: 40%;
+}
+
+.center-button {
+    margin-top: 270px;
+    left: 48%;
+    position: absolute;
+}
+
+.center-label {
+    margin-top: 18px;
+    left: 32%;
+    position: absolute;
+}
+
+table { border-spacing: 0; }
+td { padding: 4px; }
+tr:hover {
+    background: #fc0;
+}

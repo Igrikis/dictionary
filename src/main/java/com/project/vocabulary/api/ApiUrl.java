@@ -5,7 +5,7 @@ package com.project.vocabulary.api;
  */
 public abstract class ApiUrl {
 
-    public static final String INDEX = "/";
+    public static final String INDEX = "/home";
     public static final String LOGIN = "/login";
     public static final String TEXT = "/text";
     public static final String NEW_TEXT = "/new_text";
