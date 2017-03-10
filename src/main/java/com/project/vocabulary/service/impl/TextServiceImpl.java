@@ -8,6 +8,7 @@ import com.project.vocabulary.service.TextService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,7 +26,9 @@ public class TextServiceImpl extends AbstractService implements TextService{
     }
 
     @Override
-    public void saveText(Text text) {
-        textDao.saveText(text);
+    public void saveText(TextDto text) {
+        Text item = mapper.map(text, Text.class);
+        item.setDate(new Date());
+        textDao.saveText(item);
     }
 }

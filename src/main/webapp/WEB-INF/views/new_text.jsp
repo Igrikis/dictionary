@@ -16,41 +16,27 @@
     <textarea style="resize: none" class="form-control" rows="10" cols="10" id="english"></textarea>
 </div>
 <div class="form-group">
-    <label for="russia">Russia</label>
-    <textarea style="resize: none; margin-left: 6px" class="form-control" rows="10" cols="10" id="russia"></textarea>
+    <label for="russian">Russia</label>
+    <textarea style="resize: none; margin-left: 6px" class="form-control" rows="10" cols="10" id="russian"></textarea>
 </div>
 
 <button class="btn btn-primary" type="button" onclick="send()">Add</button>
 
 <script>
     function send() {
-        /*$.get('/save_text', [text = {
-            ID: '123456',
-            userEmail: 'a.a@a',
-            ApproverFlag: 'true'
-        }]).done(function (data) {
-            alert(data);
-        });*/
-
         $.ajax({
             url: "/save_text",
             type: 'GET',
             data: {
-//                'text': {
-                    'user': 'username',
-                    'pass': 'password',
-                    'sendImmediately': false
-//                }
+                'id' : '',
+                'date': '',
+                'label': 'password',
+                'englishText': document.getElementById("english").value,
+                'russianText': document.getElementById("russian").value
             },
             dataType: 'json',
-            headers: {'Content-Type': 'application/json'},
-        success: function(response) {
-            alert("Save success").success();
-        },
-        error: function(xhr) {
-            //Do Something to handle error
-        }
-    });
+            headers: {'Content-Type': 'application/json'}
+        });
     }
 </script>
 

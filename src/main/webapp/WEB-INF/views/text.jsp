@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.text.*,java.util.*" session="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +13,7 @@
 </head>
 <body>
 
-<jsp:include page="includes/header.jsp"/>;
+<jsp:include page="includes/header.jsp"/>
 
 <div class="container">
     <table class="table table-condensed" id="myTable">
@@ -22,15 +24,15 @@
             <th>Date</th>
         </tr>
         </thead>
-        <tbody id = "tbo">
+        <tbody id="tbo">
         </tbody>
     </table>
 
-    <button type="button" class="btn btn-primary" onclick="location.href='/new_text'">Primary</button>
+    <button type="button" class="btn btn-primary" onclick="location.href='/new_text'">Add text</button>
 </div>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         var table = $('#tbo');
         $.getJSON('/get_text', function (data) {
             for (var i = 0; i < data.result.length; i++) {
@@ -40,7 +42,8 @@
                     '<td>' + data.result[i].label + '</td>' +
                     '<td>' + data.result[i].date + '</td>' +
                     '</tr>');
-            }});
+            }
+        });
     });
 </script>
 

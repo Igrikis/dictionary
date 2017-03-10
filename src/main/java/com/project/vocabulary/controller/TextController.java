@@ -8,6 +8,7 @@ import com.project.vocabulary.service.TextService;
 import com.project.vocabulary.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -44,9 +45,9 @@ public class TextController {
     @RequestMapping(value = ApiUrl.SAVE_TEXT)
     @ResponseBody
     public void saveText(
-            //@RequestParam TextDto text
+            TextDto data
     ) {
-        //text.toString();
+        textService.saveText(data);
     }
 
 }

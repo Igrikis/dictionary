@@ -2,14 +2,12 @@ package com.project.vocabulary.dto;
 
 import com.project.vocabulary.dto.generic.AbstractDto;
 
-import java.util.Date;
-
 /**
  * Created by Igor Ivanov
  */
 public class TextDto extends AbstractDto{
 
-    private Date date;
+    private String date;
     private String label;
     private String englishText;
     private String russianText;
@@ -17,18 +15,18 @@ public class TextDto extends AbstractDto{
     public TextDto() {
     }
 
-    public TextDto(Date date, String label, String englishText, String russianText) {
+    public TextDto(String date, String label, String englishText, String russianText) {
         this.date = date;
         this.label = label;
         this.englishText = englishText;
         this.russianText = russianText;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

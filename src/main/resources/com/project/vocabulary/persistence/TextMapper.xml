@@ -14,4 +14,9 @@
     <select id="getTextList" resultMap="textResultMap">
         SELECT * FROM TEXT
     </select>
+
+    <insert id='saveText' parameterType='com.project.vocabulary.entity.Text'>
+        INSERT INTO TEXT(DATE, LABEL, ENGLISH_TEXT, RUSSIAN_TEXT)
+        VALUES(#{date}, #{label}, #{englishText}, #{russianText})
+    </insert>
 </mapper>
