@@ -23,12 +23,12 @@ public class TextController {
 
     @RequestMapping(value = ApiUrl.TEXT)
     public String textPage() {
-        return "text";
+        return null;
     }
 
     @RequestMapping(value = ApiUrl.NEW_TEXT)
     public String newTextPage() {
-        return "new_text";
+        return null;
     }
 
     @RequestMapping(value = ApiUrl.GET_TEXT, produces = ApiUrl.JSON)
@@ -40,9 +40,7 @@ public class TextController {
 
     @RequestMapping(value = ApiUrl.SAVE_TEXT)
     @ResponseBody
-    public void saveText(
-            TextDto data
-    ) {
+    public void saveText(TextDto data) {
         textService.saveText(data);
     }
 

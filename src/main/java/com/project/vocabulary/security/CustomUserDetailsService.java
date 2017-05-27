@@ -21,6 +21,8 @@ import java.util.List;
 @Service("CustomUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService {
 
+    private static final String ROLE = "ROLE_";
+
     @Autowired
     private UserAuthService userAuthService;
 
@@ -36,7 +38,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         List<GrantedAuthority> authorities = new ArrayList<>();
         for (UserRoles role : user.getRoles()) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getRole()));
+            authorities.add(new SimpleGrantedAuthority(String.format("%s%s", ROLE, role.getRole())));
         }
 
         return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), authorities);

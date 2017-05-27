@@ -23,6 +23,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
+    private static final String ROLE_ADMIN = "hasRole('ROLE_ADMIN')";
+    private static final String ACCESS_DENIED = "/Access_Denied";
 
     @Autowired
     @Qualifier("CustomUserDetailsService")
@@ -49,12 +51,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers(ApiUrl.INDEX).permitAll()
-                .antMatchers("/test1").access("hasRole('ROLE_ADMIN')")
-                .and().formLogin().loginPage(ApiUrl.LOGIN)
+                .antMatchers().permitAll()
+                .antMatchers(ApiUrl.INDEX).access(ROLE_ADMIN)
+                .and().formLogin()
                 .usernameParameter(LOGIN).passwordParameter(PASSWORD)
                 .and().csrf()
-                .and().exceptionHandling().accessDeniedPage(ApiUrl.ACCESS_DENIED);
+                .and().exceptionHandling().accessDeniedPage(ACCESS_DENIED);
     }
 
 }
