@@ -4,10 +4,10 @@ import com.project.vocabulary.api.ApiUrl;
 import com.project.vocabulary.dto.TextDto;
 import com.project.vocabulary.request.MultiResult;
 import com.project.vocabulary.service.TextService;
+import com.project.vocabulary.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Igor Ivanov
  */
 
-@Controller
+@RestController
 public class TextController {
 
     @Autowired
@@ -31,15 +31,13 @@ public class TextController {
         return null;
     }
 
-    @RequestMapping(value = ApiUrl.GET_TEXT, produces = ApiUrl.JSON)
-    @ResponseBody
+    @RequestMapping(value = ApiUrl.GET_TEXT, produces = Constants.JSON)
     public MultiResult<List<TextDto>> getText() {
         final List<TextDto> text = textService.getTextList();
         return new MultiResult<>(text, text.size());
     }
 
     @RequestMapping(value = ApiUrl.SAVE_TEXT)
-    @ResponseBody
     public void saveText(TextDto data) {
         textService.saveText(data);
     }
