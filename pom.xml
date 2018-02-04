@@ -26,8 +26,8 @@
         <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
         <maven.dependency.plugin.version>3.0.2</maven.dependency.plugin.version>
 
-        <source.version>1.9</source.version>
-        <target.version>1.9</target.version>
+        <source.version>1.8</source.version>
+        <target.version>1.8</target.version>
         <encoding>UTF-8</encoding>
     </properties>
 
